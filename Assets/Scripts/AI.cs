@@ -30,4 +30,10 @@ public class AI : MonoBehaviour
     {
         _agent.SetDestination(_endPoint.position);
     }
+
+    //Run to end point,
+    //randomly Hide at a hide point. But forward.
+    //Hide behind pillar for a random amount of time. 
+    //Death, Trigger death animation
+    //Add 50 Points.
 }
