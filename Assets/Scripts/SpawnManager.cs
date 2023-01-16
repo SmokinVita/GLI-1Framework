@@ -37,8 +37,8 @@ public class SpawnManager : MonoBehaviour
     {
         while(true)
         {
-            GameObject enemyAI = Instantiate(_aiPrefab, _spawnPoint.position, Quaternion.identity);
-            enemyAI.transform.parent = gameObject.transform;
+            GameObject enemyAI = Pool_Manager.Instance.RequestAI();
+            enemyAI.transform.position = _spawnPoint.position;
             yield return new WaitForSeconds(5f);
         }
     }
