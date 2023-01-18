@@ -18,11 +18,6 @@ public class SpawnManager : MonoBehaviour
         }
     }
 
-    //Spawn AI at Starting point
-    //Learn about pooling.
-
-    [SerializeField]
-    private GameObject _aiPrefab;
     [SerializeField]
     private Transform _spawnPoint;
 
