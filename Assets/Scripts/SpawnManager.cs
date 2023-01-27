@@ -25,6 +25,11 @@ public class SpawnManager : MonoBehaviour
     void Start()
     {
         _instance = this;
+        
+    }
+
+    public void StartSpawning()
+    {
         StartCoroutine(SpawnRoutine());
     }
 

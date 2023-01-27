@@ -25,13 +25,22 @@ public class UIManager : MonoBehaviour
     [SerializeField]
     private TMP_Text _score;
     [SerializeField]
+    private TMP_Text _ammoCount;
+    [SerializeField]
     private TMP_Text _aiCount;
     [SerializeField]
     private TMP_Text _timeRemaining;
+    [SerializeField]
+    private TMP_Text _warningText;
 
     public void UpdateScore(int score)
     {
         _score.SetText(score.ToString());
+    }
+
+    public void UpdateAmmoCount(int ammo)
+    {
+        _ammoCount.SetText(ammo.ToString());
     }
 
     public void UpdateAICount(int ai)
@@ -39,9 +48,20 @@ public class UIManager : MonoBehaviour
         _aiCount.SetText(ai.ToString());
     }
 
-    public void UpdateTimeRemaining(float time)
+    public void UpdateTimeRemaining(float timeRemaining, bool spawnStarted)
     {
-        _timeRemaining.SetText(time.ToString());
+        if (spawnStarted == false)
+        {
+            _warningText.enabled = false;
+            float minutes = Mathf.FloorToInt(timeRemaining / 60);
+            float seconds = Mathf.FloorToInt(timeRemaining % 60);
+            _timeRemaining.SetText("{0:00}:{1:00}", minutes, seconds);
+        }
+        else
+        {
+            _timeRemaining.enabled = false;
+            _warningText.enabled = true;
+        }
     }
 
 }
